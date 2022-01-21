@@ -21,7 +21,7 @@ def build():
     return spark
 
 
-DELTA_TABLE_DIR = str(Path("./delta-table").joinpath(str(uuid.uuid4())[:8]))
+DELTA_TABLE_DIR = str(Path("output") / "delta-table" / str(uuid.uuid4())[:8])
 
 
 def main():

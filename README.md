@@ -14,7 +14,9 @@ Spark cluster listens on port 7077 by default.
 $ pip install -e .
 ```
 
-Follow the [instructions](https://docs.delta.io/latest/quick-start.html) how to start with Delta Lake:
+Run `python example.py`.
+
+Follow the [instructions](https://docs.delta.io/latest/quick-start.html) how to start `pyspark` with Delta Lake dependencies:
 
 ```bash
 $ pyspark --packages io.delta:delta-core_2.12:1.1.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
