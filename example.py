@@ -6,10 +6,14 @@ from delta import DeltaTable, configure_spark_with_delta_pip
 import pyspark
 from pyspark.sql.functions import expr
 
+SPARK_MASTER_URL = "spark://Kimmos-MBP.localdomain:7077"
+DELTA_TABLE_DIR = str(Path("output") / "delta-table" / str(uuid.uuid4())[:8])
+
 
 def build():
     builder = (
-        pyspark.sql.SparkSession.builder.appName("MyApp")
+        pyspark.sql.SparkSession.builder.master(SPARK_MASTER_URL)
+        .appName("DeltaTableExample")
         .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
         .config(
             "spark.sql.catalog.spark_catalog",
@@ -19,9 +23,6 @@ def build():
 
     spark = configure_spark_with_delta_pip(builder).getOrCreate()
     return spark
-
-
-DELTA_TABLE_DIR = str(Path("output") / "delta-table" / str(uuid.uuid4())[:8])
 
 
 def main():

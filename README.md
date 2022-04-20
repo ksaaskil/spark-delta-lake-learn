@@ -4,9 +4,22 @@
 
 [Download](https://spark.apache.org/downloads.html) and extract Spark.
 
-Start a Spark cluster in [stand-alone mode](https://spark.apache.org/docs/latest/spark-standalone.html) and navigate to [`http://localhost:8080`](http://localhost:8080).
+Start a Spark cluster in [stand-alone mode](https://spark.apache.org/docs/latest/spark-standalone.html) and navigate to [`http://localhost:8080`](http://localhost:8080). Spark cluster listens on port 7077 by default.
 
-Spark cluster listens on port 7077 by default.
+For example, start a master and worker as follows:
+
+```bash
+$ ~/Libraries/spark-3.2.0-bin-hadoop3.2/sbin/start-master.sh
+$ ~/Libraries/spark-3.2.0-bin-hadoop3.2/sbin/start-worker.sh spark://Kimmos-MBP.localdomain:7077
+```
+
+Replace the Spark URL for your installation.
+
+Start a Spark shell, for example:
+
+```bash
+$ ~/Libraries/spark-3.2.0-bin-hadoop3.2/bin/spark-shell --master spark://Kimmos-MBP.localdomain:7077
+```
 
 ## Install dependencies
 
